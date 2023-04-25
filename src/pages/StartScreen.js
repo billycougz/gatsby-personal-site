@@ -70,7 +70,6 @@ const TitleBox = styled.div`
 	align-items: center;
 	border-top: 5px solid ${COLORS.ACCENT};
 	border-left: 5px solid ${COLORS.ACCENT};
-	font-family: 'Press Start 2P';
 	@media only screen and (max-height: 550px) {
 		margin-top: 0;
 	}
@@ -79,7 +78,7 @@ const TitleBox = styled.div`
 const TitleBoxContent = styled.div`
 	color: ${COLORS.ACCENT};
 	font-size: calc(100vw / 8);
-	line-height: calc((100vw / 8) + 1rem);
+	line-height: 1.25em;
 	text-shadow: calc(1em / 10) calc(1em / 10) 0px black;
 	@media only screen and (min-width: 800px) {
 		font-size: 110px;
