@@ -127,9 +127,9 @@ const Nails = () => {
 };
 
 const StartScreen = () => {
-	const coinSound = new Audio(COIN_SOUND_IMPORT);
+	const coinSoundRef = React.useRef(null);
 	const playCoinSound = () => {
-		coinSound.play();
+		coinSoundRef.current.play();
 	};
 	return (
 		<Container>
@@ -146,6 +146,7 @@ const StartScreen = () => {
 					<Option href='https://github.com/billycougz' target='_blank'>
 						2 GITHUB
 					</Option>
+					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>
 			<Hill />
