@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwilliam_cougan=self.webpackChunkwilliam_cougan||[]).push([[678],{3463:function(e,n,l){l.r(n),l.d(n,{Head:function(){return c},default:function(){return r}});var t=l(7294),u=l(4710);function a(e){let{children:n}=e;return t.createElement(t.Fragment,null,n)}var r=()=>t.createElement(a,null,t.createElement(u.default,null));const c=()=>t.createElement("title",null,"William Cougan")}}]);
+//# sourceMappingURL=component---src-pages-index-js-d35e13826bdb2bf6cf53.js.map
