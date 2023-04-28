@@ -1,3 +1,7 @@
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -27,6 +31,12 @@ module.exports = {
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				icon: 'src/assets/icon.png',
+			},
+		},
+		{
+			resolve: 'gatsby-plugin-google-gtag',
+			options: {
+				trackingIds: [process.env.GA_MEASUREMENT_ID],
 			},
 		},
 	],
