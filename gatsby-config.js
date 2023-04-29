@@ -8,7 +8,8 @@ require('dotenv').config({
 module.exports = {
 	siteMetadata: {
 		title: `William Cougan`,
-		siteUrl: `https://www.williamcougan.com`,
+		siteUrl: `https://williamcougan.com`,
+		description: `"Discover the best version of yourself, one click at a time. - ChatGPT" - William Cougan`,
 	},
 	plugins: [
 		{
