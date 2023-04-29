@@ -8,6 +8,8 @@ const Container = styled.div`
 `;
 
 const GROUND_HEIGHT = '100px';
+const GROUND_BORDER_HEIGHT = '5px';
+const LANDSCAPE_BOTTOM = `calc(${GROUND_HEIGHT} + ${GROUND_BORDER_HEIGHT})`;
 
 const COLORS = {
 	ACCENT: '#ffc4b7',
@@ -25,7 +27,8 @@ const Sky = styled.div`
 const Ground = styled.div`
 	height: ${GROUND_HEIGHT};
 	background: #e45e10;
-	border-top: 5px dashed ${COLORS.ACCENT};
+	border-top: ${GROUND_BORDER_HEIGHT} dashed ${COLORS.ACCENT};
+	position: relative;
 `;
 
 const Hill = styled.div`
@@ -37,7 +40,7 @@ const Hill = styled.div`
 	border: 2px dashed black;
 	border-bottom: 0;
 	position: absolute;
-	inset: ${`auto auto ${GROUND_HEIGHT} 30px`};
+	inset: ${`auto auto ${LANDSCAPE_BOTTOM} 30px`};
 `;
 
 const Bush = styled(Hill)`
@@ -49,9 +52,9 @@ const Bush = styled(Hill)`
 
 const Bushes = () => {
 	const positions = [
-		`auto 130px ${GROUND_HEIGHT} auto`,
-		`auto 30px ${GROUND_HEIGHT} auto`,
-		`auto 230px ${GROUND_HEIGHT} auto`,
+		`auto 130px ${LANDSCAPE_BOTTOM} auto`,
+		`auto 30px ${LANDSCAPE_BOTTOM} auto`,
+		`auto 230px ${LANDSCAPE_BOTTOM} auto`,
 	];
 	return positions.map((position) => <Bush position={position} />);
 };
@@ -148,9 +151,10 @@ const StartScreen = () => {
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>
-			<Hill />
-			<Bushes />
-			<Ground />
+			<Ground>
+				<Hill />
+				<Bushes />
+			</Ground>
 		</Container>
 	);
 };
