@@ -10,6 +10,7 @@ module.exports = {
 		title: `William Cougan`,
 		siteUrl: `https://williamcougan.com`,
 		description: `"Discover the best version of yourself, one click at a time. - ChatGPT" - William Cougan`,
+		image: '/site-img.png',
 	},
 	plugins: [
 		{
