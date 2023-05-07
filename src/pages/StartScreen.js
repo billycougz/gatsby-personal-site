@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import COIN_SOUND_IMPORT from '../assets/coin-sound.mp3';
+import Marquee from '../components/Marquee';
 
 const Container = styled.div`
 	height: 100vh;
@@ -56,7 +57,7 @@ const Bushes = () => {
 		`auto 30px ${LANDSCAPE_BOTTOM} auto`,
 		`auto 230px ${LANDSCAPE_BOTTOM} auto`,
 	];
-	return positions.map((position) => <Bush position={position} />);
+	return positions.map((position) => <Bush key={position} position={position} />);
 };
 
 const TitleBox = styled.div`
@@ -125,17 +126,19 @@ const Nail = styled.span`
 
 const Nails = () => {
 	const positions = ['10px auto auto 10px', '10px 10px auto auto', 'auto 10px 10px auto', 'auto auto 10px 10px'];
-	return positions.map((position) => <Nail position={position} />);
+	return positions.map((position) => <Nail key={position} position={position} />);
 };
 
 const StartScreen = () => {
 	const coinSoundRef = React.useRef(null);
 	const playCoinSound = () => {
+		coinSoundRef.current.volume = 0.02;
 		coinSoundRef.current.play();
 	};
 	return (
 		<Container>
 			<Sky>
+				<Marquee />
 				<TitleBox>
 					<Nails />
 					<TitleBoxContent>WILLIAM COUGAN</TitleBoxContent>
@@ -147,6 +150,9 @@ const StartScreen = () => {
 					</Option>
 					<Option href='https://github.com/billycougz' target='_blank'>
 						2 GITHUB
+					</Option>
+					<Option href='https://twitter.com/will_cougar' target='_blank'>
+						3 TWITTER
 					</Option>
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
