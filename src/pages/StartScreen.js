@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import COIN_SOUND_IMPORT from '../assets/coin-sound.mp3';
 import Marquee from '../components/Marquee';
+import { Link } from 'gatsby';
 
 const Container = styled.div`
 	height: 100vh;
@@ -108,7 +109,7 @@ const OptionContainer = styled.div`
 	z-index: 690;
 `;
 
-const Option = styled.a`
+const Option = styled(Link)`
 	color: white;
 	display: block;
 	text-decoration: none;
@@ -145,15 +146,16 @@ const StartScreen = () => {
 					<Copyright>© 2023 WILLIAM COUGAN</Copyright>
 				</TitleBox>
 				<OptionContainer onClick={playCoinSound}>
-					<Option href='https://www.linkedin.com/in/williamcougan/' target='_blank'>
+					<Option to='https://www.linkedin.com/in/williamcougan/' target='_blank'>
 						1 LINKEDIN
 					</Option>
-					<Option href='https://github.com/billycougz' target='_blank'>
+					<Option to='https://github.com/billycougz' target='_blank'>
 						2 GITHUB
 					</Option>
-					<Option href='https://twitter.com/will_cougar' target='_blank'>
+					<Option to='https://twitter.com/will_cougar' target='_blank'>
 						3 TWITTER
 					</Option>
+					<Option to='/concept/DayAndNite'>4 CONCEPTS</Option>
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>

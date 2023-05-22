@@ -4,3 +4,4 @@ public
 .DS_STORE
 notes.txt
 .env*
+settings.json
