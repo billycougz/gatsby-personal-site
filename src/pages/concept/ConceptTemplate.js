@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../components/layout';
 import Menu from '../../components/Menu';
 import DayAndNight from '../DayAndNite';
 import StartScreen from '../StartScreen';
@@ -17,14 +18,14 @@ const ConceptTemplate = ({ pageContext }) => {
 		return name === 'Home' ? navigate('/') : navigate(`/concept/${name}`, { replace: true });
 	};
 	return (
-		<>
+		<Layout>
 			<SEO title={`${activeConceptId} / Concept / William Cougan`} />
 			{activeConceptId !== 'Home' && (
 				<Menu selectedOption={activeName} options={concepts.map(({ name }) => name)} onClick={handleOptionClick} />
 			)}
 
 			{ActiveConcept ? <ActiveConcept /> : null}
-		</>
+		</Layout>
 	);
 };
 
