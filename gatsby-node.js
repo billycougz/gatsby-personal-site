@@ -1,12 +1,11 @@
 exports.createPages = async ({ actions }) => {
-	const { createPage } = actions;
-	const conceptIds = ['DayAndNite'];
-	conceptIds.forEach((conceptId) => {
-		createPage({
-			path: `/concept/${conceptId}`,
-			component: require.resolve('./src/pages/concept/ConceptTemplate.js'),
+	const conceptIds = ['flappy-tanooki', 'day-and-nite'];
+	conceptIds.forEach((id) => {
+		actions.createPage({
+			path: `/concept/${id}`,
+			component: require.resolve('./src/pages/concepts/ConceptTemplate.js'),
 			context: {
-				conceptId,
+				id,
 			},
 		});
 	});

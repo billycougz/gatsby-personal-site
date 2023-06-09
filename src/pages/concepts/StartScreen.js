@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import COIN_SOUND_IMPORT from '../assets/coin-sound.mp3';
-import Marquee from '../components/Marquee';
+import COIN_SOUND_IMPORT from '../../assets/coin-sound.mp3';
+import Marquee from '../../components/Marquee';
 import { Link } from 'gatsby';
 
 const Container = styled.div`
@@ -109,11 +109,18 @@ const OptionContainer = styled.div`
 	z-index: 690;
 `;
 
-const Option = styled(Link)`
+const OptionStyles = `
 	color: white;
 	display: block;
 	text-decoration: none;
 	margin-top: 1rem;
+	cursor: pointer;
+`;
+const InternalOption = styled(Link)`
+	${OptionStyles}
+`;
+const ExternalOption = styled.a`
+	${OptionStyles}
 `;
 
 const Nail = styled.span`
@@ -146,16 +153,16 @@ const StartScreen = () => {
 					<Copyright>© 2023 WILLIAM COUGAN</Copyright>
 				</TitleBox>
 				<OptionContainer onClick={playCoinSound}>
-					<Option to='https://www.linkedin.com/in/williamcougan/' target='_blank'>
+					<ExternalOption href='https://www.linkedin.com/in/williamcougan/' target='_blank'>
 						1 LINKEDIN
-					</Option>
-					<Option to='https://github.com/billycougz' target='_blank'>
+					</ExternalOption>
+					<ExternalOption href='https://github.com/billycougz' target='_blank'>
 						2 GITHUB
-					</Option>
-					<Option to='https://twitter.com/will_cougar' target='_blank'>
+					</ExternalOption>
+					<ExternalOption href='https://twitter.com/will_cougar' target='_blank'>
 						3 TWITTER
-					</Option>
-					<Option to='/concept/DayAndNite'>4 CONCEPTS</Option>
+					</ExternalOption>
+					<InternalOption to='/concept/flappy-tanooki'>4 CONCEPTS</InternalOption>
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>

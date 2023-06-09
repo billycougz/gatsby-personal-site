@@ -1,5 +1,5 @@
 import * as React from 'react';
-import StartScreen from './StartScreen';
+import StartScreen from './concepts/StartScreen';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
 

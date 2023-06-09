@@ -37,10 +37,10 @@ const MenuItems = styled.ul`
 const MenuItem = styled.li`
 	padding: 0.5rem;
 	cursor: pointer;
-	background-color: ${({ selected }) => (selected ? '#f5f5f5' : 'transparent')};
+	background-color: ${({ selected }) => (selected ? '#eaeaea' : 'transparent')};
 
 	&:hover {
-		background-color: ${({ selected }) => (selected ? '#f5f5f5' : '#f0f0f0')};
+		background-color: ${({ selected }) => (selected ? '#eaeaea' : '#f0f0f0')};
 	}
 `;
 
@@ -72,9 +72,9 @@ const Menu = ({ options, onClick, selectedOption }) => {
 				<Image src={blockImage} />
 			</MenuButton>
 			<MenuItems open={open}>
-				{options.map((option) => (
-					<MenuItem key={option} selected={option === selectedOption} onClick={() => onClick(option)}>
-						{option}
+				{options.map(({ id, name }) => (
+					<MenuItem key={id} selected={id === selectedOption} onClick={() => onClick(id)}>
+						{name}
 					</MenuItem>
 				))}
 			</MenuItems>

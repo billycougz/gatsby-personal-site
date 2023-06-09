@@ -140,7 +140,7 @@ const Stars = ({ hour }) => {
 	));
 };
 
-const DayAndNight = () => {
+const DayAndNite = () => {
 	const hour = useHour();
 
 	return (
@@ -156,4 +156,4 @@ const DayAndNight = () => {
 	);
 };
 
-export default DayAndNight;
+export default DayAndNite;
