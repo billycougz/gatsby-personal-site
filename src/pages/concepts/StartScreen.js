@@ -116,11 +116,18 @@ const OptionStyles = `
 	margin-top: 1rem;
 	cursor: pointer;
 `;
+
 const InternalOption = styled(Link)`
 	${OptionStyles}
 `;
+
 const ExternalOption = styled.a`
 	${OptionStyles}
+`;
+
+const ButtonOption = styled.button`
+	all: unset;
+	${OptionStyles};
 `;
 
 const Nail = styled.span`
@@ -137,7 +144,47 @@ const Nails = () => {
 	return positions.map((position) => <Nail key={position} position={position} />);
 };
 
+const DefaultOptions = ({ setOptions } = {}) => (
+	<>
+		<ExternalOption href='https://www.linkedin.com/in/williamcougan/' target='_blank'>
+			1 LINKEDIN
+		</ExternalOption>
+		<ExternalOption href='https://github.com/billycougz' target='_blank'>
+			2 GITHUB
+		</ExternalOption>
+		<ExternalOption href='https://twitter.com/will_cougar' target='_blank'>
+			3 TWITTER
+		</ExternalOption>
+		<ButtonOption onClick={() => setOptions(() => ConceptOptions)}>4 CONCEPTS</ButtonOption>
+		<ButtonOption onClick={() => setOptions(() => AppOptions)}>5 APPS</ButtonOption>
+	</>
+);
+
+const ConceptOptions = ({ setOptions }) => (
+	<>
+		<InternalOption to='/concept/flappy-tanooki'>1 FLAPPY TANOOKI</InternalOption>
+		<InternalOption to='/concept/day-and-nite'>2 DAY AND NITE</InternalOption>
+		<ButtonOption onClick={() => setOptions(() => DefaultOptions)}>← MAIN MENU</ButtonOption>
+	</>
+);
+
+const AppOptions = ({ setOptions }) => (
+	<>
+		<ExternalOption href='https://perfectionlists.billycougan.com/' target='_blank'>
+			1 PERFECTIONLISTS
+		</ExternalOption>
+		<ExternalOption href='https://squares.billycougan.com/' target='_blank'>
+			2 SQUARES
+		</ExternalOption>
+		<ExternalOption href='https://sheets.billycougan.com/' target='_blank'>
+			3 BILLSEYE
+		</ExternalOption>
+		<ButtonOption onClick={() => setOptions(() => DefaultOptions)}>← MAIN MENU</ButtonOption>
+	</>
+);
+
 const StartScreen = () => {
+	const [Options, setOptions] = React.useState(() => DefaultOptions);
 	const coinSoundRef = React.useRef(null);
 	const playCoinSound = () => {
 		coinSoundRef.current.volume = 0.02;
@@ -153,16 +200,7 @@ const StartScreen = () => {
 					<Copyright>© 2023 WILLIAM COUGAN</Copyright>
 				</TitleBox>
 				<OptionContainer onClick={playCoinSound}>
-					<ExternalOption href='https://www.linkedin.com/in/williamcougan/' target='_blank'>
-						1 LINKEDIN
-					</ExternalOption>
-					<ExternalOption href='https://github.com/billycougz' target='_blank'>
-						2 GITHUB
-					</ExternalOption>
-					<ExternalOption href='https://twitter.com/will_cougar' target='_blank'>
-						3 TWITTER
-					</ExternalOption>
-					<InternalOption to='/concept/flappy-tanooki'>4 CONCEPTS</InternalOption>
+					<Options setOptions={setOptions} />
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>
