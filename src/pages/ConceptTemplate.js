@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../../components/layout';
-import Menu from '../../components/Menu';
+import Layout from '../components/layout';
+import Menu from '../components/Menu';
 import { navigate } from 'gatsby';
-import { SEO } from '../../components/seo';
-import Concepts from '.';
+import { SEO } from '../components/seo';
+import Concepts from '../concepts-config';
 
 /**
  * Template that renders the applicable concept component

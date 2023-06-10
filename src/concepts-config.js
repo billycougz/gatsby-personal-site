@@ -1,6 +1,6 @@
-import DayAndNite from './DayAndNite';
-import FlappyTanooki from './FlappyTanooki';
-import StartScreen from './StartScreen';
+import DayAndNite from './pages/DayAndNite';
+import FlappyTanooki from './pages/FlappyTanooki';
+import StartScreen from './pages/StartScreen';
 
 export default [
 	{
@@ -9,12 +9,12 @@ export default [
 		component: StartScreen,
 	},
 	{
-		id: 'flappy-tanooki',
+		id: 'Flappy-Tanooki',
 		name: 'Flappy Tanooki',
 		component: FlappyTanooki,
 	},
 	{
-		id: 'day-and-nite',
+		id: 'Day-And-Nite',
 		name: `Day And Nite`,
 		component: DayAndNite,
 	},

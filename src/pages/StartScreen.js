@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import COIN_SOUND_IMPORT from '../../assets/coin-sound.mp3';
-import Marquee from '../../components/Marquee';
+import COIN_SOUND_IMPORT from '../assets/coin-sound.mp3';
+import Marquee from '../components/Marquee';
 import { Link } from 'gatsby';
 
 const Container = styled.div`
@@ -162,8 +162,8 @@ const DefaultOptions = ({ setOptions } = {}) => (
 
 const ConceptOptions = ({ setOptions }) => (
 	<>
-		<InternalOption to='/concept/flappy-tanooki'>1 FLAPPY TANOOKI</InternalOption>
-		<InternalOption to='/concept/day-and-nite'>2 DAY AND NITE</InternalOption>
+		<InternalOption to='/concept/Flappy-Tanooki'>1 FLAPPY TANOOKI</InternalOption>
+		<InternalOption to='/concept/Day-And-Nite'>2 DAY AND NITE</InternalOption>
 		<ButtonOption onClick={() => setOptions(() => DefaultOptions)}>← MAIN MENU</ButtonOption>
 	</>
 );

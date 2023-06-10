@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { withPrefix } from 'gatsby';
 import styled from 'styled-components';
-import MarioCurtainImg from '../../assets/mario-curtain.png';
+import MarioCurtainImg from '../assets/mario-curtain.png';
 
 const Container = styled.div`
 	background: url(${MarioCurtainImg});
