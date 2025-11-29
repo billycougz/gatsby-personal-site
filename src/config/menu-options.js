@@ -8,13 +8,15 @@ const menuOptions = {
   concepts: [
     { type: "internal", label: "1 FLAPPY TANOOKI", to: "/concept/Flappy-Tanooki" },
     { type: "internal", label: "2 DAY AND NITE", to: "/concept/Day-And-Nite" },
+    { type: "external", label: "3 GEMINI FLAPPY CLONE", href: "https://billycougz.github.io/gemini-flappy-clone/" },
     { type: "back", label: "← MAIN MENU", submenu: "default" }
   ],
   apps: [
     { type: "external", label: "1 PERFECTIONLISTS", href: "https://perfectionlists.billycougan.com/" },
     { type: "external", label: "2 SQUARES", href: "https://squares.billycougan.com/" },
     { type: "external", label: "3 BILLSEYE", href: "https://sheets.billycougan.com/" },
-    { type: "external", label: "4 TASTEBUDDY", href:"https://tastebuddy.williamcougan.com/" },
+    { type: "external", label: "4 TASTEBUDDY", href: "https://tastebuddy.williamcougan.com/" },
+    { type: "external", label: "5 AI MEMORY", href: "https://memory.williamcougan.com/" },
     { type: "back", label: "← MAIN MENU", submenu: "default" }
   ]
 };
