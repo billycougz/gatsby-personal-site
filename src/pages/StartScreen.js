@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import COIN_SOUND_IMPORT from '../assets/coin-sound.mp3';
 import Marquee from '../components/Marquee';
 import { Link } from 'gatsby';
+import menuOptions from '../config/menu-options';
 
 const Container = styled.div`
 	height: 100vh;
@@ -144,51 +145,49 @@ const Nails = () => {
 	return positions.map((position) => <Nail key={position} position={position} />);
 };
 
-const DefaultOptions = ({ setOptions } = {}) => (
-	<>
-		<ExternalOption href='https://www.linkedin.com/in/williamcougan/' target='_blank'>
-			1 LINKEDIN
-		</ExternalOption>
-		<ExternalOption href='https://github.com/billycougz' target='_blank'>
-			2 GITHUB
-		</ExternalOption>
-		<ExternalOption href='https://twitter.com/will_cougar' target='_blank'>
-			3 TWITTER
-		</ExternalOption>
-		<ButtonOption onClick={() => setOptions(() => ConceptOptions)}>4 CONCEPTS</ButtonOption>
-		<ButtonOption onClick={() => setOptions(() => AppOptions)}>5 APPS</ButtonOption>
-	</>
-);
-
-const ConceptOptions = ({ setOptions }) => (
-	<>
-		<InternalOption to='/concept/Flappy-Tanooki'>1 FLAPPY TANOOKI</InternalOption>
-		<InternalOption to='/concept/Day-And-Nite'>2 DAY AND NITE</InternalOption>
-		<ButtonOption onClick={() => setOptions(() => DefaultOptions)}>← MAIN MENU</ButtonOption>
-	</>
-);
-
-const AppOptions = ({ setOptions }) => (
-	<>
-		<ExternalOption href='https://perfectionlists.billycougan.com/' target='_blank'>
-			1 PERFECTIONLISTS
-		</ExternalOption>
-		<ExternalOption href='https://squares.billycougan.com/' target='_blank'>
-			2 SQUARES
-		</ExternalOption>
-		<ExternalOption href='https://sheets.billycougan.com/' target='_blank'>
-			3 BILLSEYE
-		</ExternalOption>
-		<ButtonOption onClick={() => setOptions(() => DefaultOptions)}>← MAIN MENU</ButtonOption>
-	</>
-);
+function MenuOptions({ options, setMenu }) {
+	if (!options) return null;
+	return (
+		<>
+			{options.map((option, idx) => {
+				if (option.type === "external") {
+					return (
+						<ExternalOption key={option.label + idx} href={option.href} target="_blank">
+							{option.label}
+						</ExternalOption>
+					);
+				}
+				if (option.type === "internal") {
+					return (
+						<InternalOption key={option.label + idx} to={option.to}>
+							{option.label}
+						</InternalOption>
+					);
+				}
+				if (option.type === "submenu" || option.type === "back") {
+					return (
+						<ButtonOption
+							key={option.label + idx}
+							onClick={() => setMenu(option.submenu)}
+						>
+							{option.label}
+						</ButtonOption>
+					);
+				}
+				return null;
+			})}
+		</>
+	);
+}
 
 const StartScreen = () => {
-	const [Options, setOptions] = React.useState(() => DefaultOptions);
+	const [currentMenu, setCurrentMenu] = React.useState("default");
 	const coinSoundRef = React.useRef(null);
 	const playCoinSound = () => {
-		coinSoundRef.current.volume = 0.02;
-		coinSoundRef.current.play();
+		if (coinSoundRef.current) {
+			coinSoundRef.current.volume = 0.02;
+			coinSoundRef.current.play();
+		}
 	};
 	return (
 		<Container>
@@ -200,7 +199,7 @@ const StartScreen = () => {
 					<Copyright>© 2023 WILLIAM COUGAN</Copyright>
 				</TitleBox>
 				<OptionContainer onClick={playCoinSound}>
-					<Options setOptions={setOptions} />
+					<MenuOptions options={menuOptions[currentMenu]} setMenu={setCurrentMenu} />
 					<audio ref={coinSoundRef} src={COIN_SOUND_IMPORT} />
 				</OptionContainer>
 			</Sky>
