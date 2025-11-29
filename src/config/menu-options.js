@@ -14,6 +14,7 @@ const menuOptions = {
     { type: "external", label: "1 PERFECTIONLISTS", href: "https://perfectionlists.billycougan.com/" },
     { type: "external", label: "2 SQUARES", href: "https://squares.billycougan.com/" },
     { type: "external", label: "3 BILLSEYE", href: "https://sheets.billycougan.com/" },
+    { type: "external", label: "4 TASTEBUDDY", href:"https://tastebuddy.williamcougan.com/" },
     { type: "back", label: "← MAIN MENU", submenu: "default" }
   ]
 };
