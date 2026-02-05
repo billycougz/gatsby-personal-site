@@ -1,5 +1,5 @@
 const siteConfig = {
-  marquee: "Welcome! I'm an engineer with a background in Web and AI. Reach out and let me know you stopped by :)"
+  marquee: "Super Bowl LX is less than a week away! Start your squares pool using my SQUARES app linked below!"
 };
 
 export default siteConfig;
